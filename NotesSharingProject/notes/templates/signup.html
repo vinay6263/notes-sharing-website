@@ -1,0 +1,135 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+{% if error == "no" %}
+<script>
+    alert(' Signup Successfull ');
+    window.location=('{% url 'login' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert(' Something went wrong  , Try Again ');
+</script>
+{% endif %}
+
+<style>
+    body {
+        background-color: #000000;
+        color: black;
+    }
+
+    .container {
+        background-color: #282A3A;
+        color: black;
+    }
+
+    .btn-primary {
+        background-color: #008080;
+        border-color: #008080;
+    }
+
+    .btn-primary:hover {
+        background-color: #006666;
+        border-color: #006666;
+    }
+
+    .btn-link {
+        color: #008080;
+    }
+
+    .btn-link:hover {
+        color: #006666;
+
+</style>
+<br>
+<div class="container-fluid mt-5" style="background-color: #AFC8AD;">
+    <br>
+    <h2 class="text-center">CREATE AN ACCOUNT</h2>
+    <hr>
+    <br>
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6">
+                <label>First Name</label>
+                <input class="form-control" name="firstname" placeholder="Enter First Name" type="text">
+            </div>
+            <div class="col-sm-6">
+                <label>Last Name</label>
+                <input class="form-control" name="lastname" placeholder="Enter Last Name" type="text">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Contact</label>
+                <input class="form-control" name="contact" placeholder="Enter Contact Number" type="text">
+            </div>
+            <div class="col-sm-6">
+                <label>Email ID</label>
+                <input class="form-control" name="emailid" placeholder="Enter Email ID" type="email">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Password</label>
+                <input class="form-control" name="password" placeholder="Enter Password" type="password">
+            </div>
+                <div class="col-sm-6">
+                    <label>Semester</label>
+                    <select class="form-control" name="semester">
+                        <option value="Select">Select Semester</option>
+                        <option value="First">First</option>
+                        <option value="Second">Second</option>
+                        <option value="Third">Third</option>
+                        <option value="Fourth">Fourth</option>
+                        <option value="Fifth">Fifth</option>
+                        <option value="Sixth">Sixth</option>
+                        <option value="Seventh">Seventh</option>
+                        <option value="Eight">Eight</option>
+                        <option value="Nine">Nine</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Branch</label>
+                    <select class="form-control" name="branch">
+                        <option value="Select">Select Branch</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="AIML">AIML</option>
+                        <option value="Business System">Business System</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Electronics">Electronics</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label>Role</label>
+                    <select class="form-control" name="role">
+                        <option value="Select">Select</option>
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                    </select>
+                </div>
+            </div>
+            <br><br>
+            <input class="btn btn-danger mx-auto d-block"
+                   style="width: 150px; background-color: #008080; border-color: #008080;" type="submit" value="SUBMIT"><br><br>
+
+            <a class="btn btn-link text-whiter" href="{% url 'login' %}"><h6>ALREADY HAVE AN ACCOUNT !</h6></a>
+
+
+    </form>
+    <br>
+</div>
+<br><br><br>
+{% endblock %}
